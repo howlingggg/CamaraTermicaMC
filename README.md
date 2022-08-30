@@ -8,12 +8,12 @@ Camara termica Seek con Raspberry pi zero
 
 ## Build
 
-Dependencies:
+Dependencias:
 * cmake
 * libopencv-dev (>= 2.4)
 * libusb-1.0-0-dev
 
-NOTE: se puede hacer 'apt-get install' de las librerias anteriores
+NOTE: Se puede hacer 'apt-get install' de las librerias anteriores
 
 ```
 cd libseek-thermal
@@ -44,7 +44,7 @@ Udev rule:
 SUBSYSTEM=="usb", ATTRS{idVendor}=="289d", ATTRS{idProduct}=="XXXX", MODE="0666", GROUP="users"
 ```
 
-Replace 'XXXX' with:
+Reemplazar 'XXXX' con:
 * 0010: Seek Thermal Compact/CompactXR
 * 0011: Seek Thermal CompactPRO
 
@@ -56,16 +56,16 @@ sudo chmod 666 /dev/bus/usb/00x/00x
 
 with '00x' the usb bus found with the lsusb command
 
-## Running example binaries
+## Codigos de ejemplo
 
 ```
 ./examples/seek_test       # Minimal Thermal Compact/CompactXR example
 ./examples/seek_test_pro   # Minimal Thermal CompactPRO example
-./examples/seek_viewer     # Example with more features supporting all cameras, run with --help for command line options
-./examples/seek_snapshot   # Takes still images, run with --help for command line options
+./examples/seek_viewer     # Ejemplo que soporta todas las camaras, correr --help para ver lista de comandos
+./examples/seek_snapshot   # Tomar imagenes
 ```
 
-Or if you installed the library you can run from any location:
+Si se instalaron las librerias puede ejecutarse desde cualquier direccion usando: 
 
 ```
 seek_test
