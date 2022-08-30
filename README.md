@@ -1,29 +1,10 @@
-# libseek-thermal
+# Camara Termica MC
 
 ![CMake](https://github.com/OpenThermal/libseek-thermal/workflows/CMake/badge.svg?branch=master)
 
-## Description
+## Descripcion
 
-libseek-thermal is a user space driver for the SEEK thermal camera series built on libusb and libopencv.
-
-Supported cameras:
-* [Seek Thermal Compact](http://www.thermal.com/products/compact)
-* [Seek Thermal CompactXR](http://www.thermal.com/products/compactxr)
-* [Seek Thermal CompactPRO](http://www.thermal.com/products/compactpro)
-
-Seek Thermal CompactPRO example:
-
-![Alt text](/doc/colormap_hot.png?raw=true "Colormap seek thermal pro")
-
-
-**NOTE: The library does not support absolute temperature readings since we don't know how. Any pull requests to fix this are welcome!**
-
-
-## Credits
-
-The code is based on ideas from the following repo's:
-* https://github.com/BjornVT/Masterproef.git
-* https://github.com/zougloub/libseek
+Camara termica Seek con Raspberry pi zero
 
 ## Build
 
@@ -32,7 +13,7 @@ Dependencies:
 * libopencv-dev (>= 2.4)
 * libusb-1.0-0-dev
 
-NOTE: you can just 'apt-get install' all libs above
+NOTE: se puede hacer 'apt-get install' de las librerias anteriores
 
 ```
 cd libseek-thermal
@@ -42,41 +23,19 @@ cmake ..
 make
 ```
 
-Install shared library, headers and binaries:
+Instalar:
 
 ```
 sudo make install
 sudo ldconfig       # update linker runtime bindings
-```
-
-For more build options (debug/release, install prefix, opencv install dir, address sanitizer, debug verbosity) run
 
 ```
 cmake-gui ../
 ```
 
-### Windows
-
-This library and example programs can be built on Windows with multiple versions of Microsoft Visual Studio. This is most readily done with Visual Studio 2015 or newer, as dependancy binaries for Windows are available from the official projects, as described below.
-
-libusb is required, and Windows binaries are available from the [offical libusb project](https://libusb.info/).
-* Download the latest binary release (files ending in `.7z`) from [libusb GitHub Releases](https://github.com/libusb/libusb/releases)
-* Extract the archive
-* If using libusb-1.0.24 or greater you will need to copy the contents (`MS64` & `MS32`) of the `VS201X` directory approriate for your version of visual studio up into the root `libusb-1.0.X` directory.
-* Set `LIBUSB_DIR` to the extracted directory (e.g., `C:\local\libusb-1.0.23`)
-
-OpenCV is required, and Windows binaries are available from the [official OpenCV project](https://opencv.org/).
-* Download one of the Windows releases from the [OpenCV releases page](https://opencv.org/releases/) (3.x and 4.x work)
-* Run the self-extracting archive
-* Set `OpenCV_DIR` to the build directory containing `OpenCVConfig.cmake` (e.g., `C:\local\opencv-3.4.10\build`)
-
-Consider setting the `CMAKE_INSTALL_PREFIX` to a location in your build directory. Then after running the INSTALL target, copy the libusb and OpenCV libraries (e.g., `libusb-1.0.dll` and `opencv_world430.dll`) to the `bin\` directory containing `seek_test.exe`.
-
-Before this library or example programs will work, you will need to set the driver for the USB device. The simplest way to do this is to use [Zadig](https://zadig.akeo.ie/). Run Zadig, then select `iAP Interface`, select `libusb-win32`, then click `Install Driver`.
-
 ## Getting USB access
 
-You need to add a udev rule to be able to run the program as non root user:
+Es necesario agregar un "udev rule" para poder correr los codigos sin ser usuario root:
 
 Udev rule:
 
@@ -88,7 +47,7 @@ Replace 'XXXX' with:
 * 0010: Seek Thermal Compact/CompactXR
 * 0011: Seek Thermal CompactPRO
 
-or manually chmod the device file after plugging the usb cable:
+o hacerlo manualmete haciendo chmod despues te conectar la camara:
 
 ```
 sudo chmod 666 /dev/bus/usb/00x/00x
@@ -111,6 +70,9 @@ Or if you installed the library you can run from any location:
 seek_test
 seek_test_pro
 seek_viewer
+
+seek_viewerMC
+
 ```
 
 ### seek_viewer
