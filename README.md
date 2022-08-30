@@ -93,7 +93,7 @@ La desventaja es que esta calibración es sensible a la temperatura y solo debe 
 cuando la cámara se haya calentado. Tenga en cuenta que es posible que deba volver a realizar el procedimiento con el tiempo.
 Resultado de la calibración en el Thermal Compact pro:
 
-Without additional flat field calibration | With additional flat field calibration
+Sin la calibracion adicional | Con la Calibracion Adicional:
 ------------------------------------------|---------------------------------------
 ![Alt text](/doc/not_ffc_calibrated.png?raw=true "Con la Calibracion Adicional:") | ![Alt text](/doc/ffc_calibrated.png?raw=true "Sin la calibracion adicional")
 
