@@ -95,7 +95,7 @@ Resultado de la calibración en el Thermal Compact pro:
 
 Without additional flat field calibration | With additional flat field calibration
 ------------------------------------------|---------------------------------------
-![Alt text](/doc/not_ffc_calibrated.png?raw=true "Without additional flat field calibration") | ![Alt text](/doc/ffc_calibrated.png?raw=true "With additional flat field calibration")
+![Alt text](/doc/not_ffc_calibrated.png?raw=true "Con la Calibracion Adicional:") | ![Alt text](/doc/ffc_calibrated.png?raw=true "Sin la calibracion adicional")
 
 Procedure:
 1) Cubra el lente de su camara (Seek thermal o Seek thermal pro) con un objeto con temperatura uniforme.
