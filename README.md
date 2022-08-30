@@ -84,53 +84,26 @@ seek_viewer --camtype=seekpro --colormap=11 --mode=file --output=seek.avi       
 seek_viewer --camtype=seekpro --colormap=11 --mode=v4l2 --output=/dev/video0    # stream the thermal video to v4l2 device
 ```
 
-### seek_snapshot
-seek_snapshot takes still images. This is useful for intergrating into shell scripts. It supports rotation and color mapping in the same manner as seek_viewer. Run with --help for all options.
+## Calibracion Adicional
+Para obtener mejor calidad de imagen, usted puede opcionalmente aplicar una calibracion adicional.
+Esto evitará que las imagenes tengan "ruido", logrando asi una imagen mas concisa y precisa.
 
-
-## Linking the library to another program
-
-After you installed the library you can compile your own programs/libs with:
-```
-g++ my_program.cpp -o my_program -lseek `pkg-config opencv --libs`
-```
-
-Using the following include:
-```
-#include <seek/seek.h>
-```
-
-## Apply additional flat field calibration
-
-To get better image quality, you can optionally apply an additional flat-field calibration.
-This will cancel out the 'white glow' in the corners and reduces spacial noise.
-The disadvantage is that this calibration is temperature sensitive and should only be applied
-when the camera has warmed up. Note that you might need to redo the procedure over time. Result of calibration on the Thermal Compact pro:
+La desventaja es que esta calibración es sensible a la temperatura y solo debe aplicarse
+cuando la cámara se haya calentado. Tenga en cuenta que es posible que deba volver a realizar el procedimiento con el tiempo.
+Resultado de la calibración en el Thermal Compact pro:
 
 Without additional flat field calibration | With additional flat field calibration
 ------------------------------------------|---------------------------------------
 ![Alt text](/doc/not_ffc_calibrated.png?raw=true "Without additional flat field calibration") | ![Alt text](/doc/ffc_calibrated.png?raw=true "With additional flat field calibration")
 
 Procedure:
-1) Cover the lens of your camera with an object of uniform temperature
-2) Run:
+1) Cubra el lente de su camara (Seek thermal o Seek thermal pro) con un objeto con temperatura uniforme.
+2) Ejecute:
 ```
-# when using the Seek Thermal compact
+# Usando la camara Seek Thermal compact:
 seek_create_flat_field -tseek
 
-# When using the Seek Thermal compact pro
+# Usando la camara Seek Thermal compact pro:
 seek_create_flat_field -tseekpro
-```
-The program will run for a few seconds and produces a flat_field.png file.
 
-3) Provide the produced .png file to one of the test programs:
-
-```
-# when using the Seek Thermal compact
-seek_test flat_field.png
-seek_viewer -t seek -F flat_field.png
-
-# When using the Seek Thermal compact pro
-seek_test_pro flat_field.png
-seek_viewer -t seekpro -F flat_field.png
 ```
